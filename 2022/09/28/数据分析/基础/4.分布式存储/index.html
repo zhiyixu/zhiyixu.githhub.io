@@ -864,8 +864,8 @@ hdfs fsck /usr/hadoop/filename.txt -files -blocks -locations # 查看文件的�
         </div>
         <div class="item right">
             
-              <a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/3.%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">
-                3.数据预处理
+              <a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/6.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                6.数据分析
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
@@ -896,5 +896,20 @@ hdfs fsck /usr/hadoop/filename.txt -files -blocks -locations # 查看文件的�
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
 	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

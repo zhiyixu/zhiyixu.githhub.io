@@ -531,22 +531,6 @@ var _hmt = _hmt || [];
           
             <li class="menu-item">
                 <span>
-                    <a href="/categories/政治/分析题/">分析题(1)</a>
-                </span>
-            </li>
-          
-      
-          
-            <li class="menu-item">
-                <span>
-                    <a href="/categories/CS/">CS(6)</a>
-                </span>
-            </li>
-          
-      
-          
-            <li class="menu-item">
-                <span>
                     <a href="/categories/数据分析/">数据分析(7)</a>
                 </span>
             </li>
@@ -555,15 +539,7 @@ var _hmt = _hmt || [];
           
             <li class="menu-item">
                 <span>
-                    <a href="/categories/数学/真题/">真题(1)</a>
-                </span>
-            </li>
-          
-      
-          
-            <li class="menu-item">
-                <span>
-                    <a href="/categories/数学/模拟题/">模拟题(1)</a>
+                    <a href="/categories/政治/分析题/">分析题(1)</a>
                 </span>
             </li>
           
@@ -579,7 +555,7 @@ var _hmt = _hmt || [];
           
             <li class="menu-item">
                 <span>
-                    <a href="/categories/CS/OS/">OS(6)</a>
+                    <a href="/categories/数学/模拟题/">模拟题(1)</a>
                 </span>
             </li>
           
@@ -595,7 +571,31 @@ var _hmt = _hmt || [];
           
             <li class="menu-item">
                 <span>
+                    <a href="/categories/CS/">CS(6)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
+                    <a href="/categories/数学/真题/">真题(1)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
                     <a href="/categories/语言/英语/">英语(3)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
+                    <a href="/categories/CS/OS/">OS(6)</a>
                 </span>
             </li>
           
@@ -620,5 +620,20 @@ var _hmt = _hmt || [];
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
 	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

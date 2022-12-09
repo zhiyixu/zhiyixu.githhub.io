@@ -487,18 +487,46 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E8%8B%B1%E8%AF%AD/%E8%AF%8D%E6%A0%B9%E8%AF%8D%E7%BC%80/">
+			<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch0/">
 				<h2 class="index-title">
-					英语词根
+					第零章
 				</h2>
 				<div class="index-brief">
-					后缀名词后缀
--on; -ion; tion; sion
--ty; -ity; -ability; velocity 速度
--age
--ment; movement 移动
--ure; feture; picture
--er; -or; -ee; -ees; -ist; -ian; -ant; -en
+					程序的执行过程
+源码
+编译
+链接
+静态链接
+装入时动态链接
+运行时动态链接
+
+
+装入
+装入方式
+绝对装入
+可重定位装入
+动态运行时装入
+
+
+装入位置分配
+单一连续分配
+固定分区分配
+动态分区分配
+首次适应
+循环首次适应
+最佳适应
+最坏适应
+
+
+
+
+
+
+调度
+先来先服务
+短作业有限
+高响应比优先
+高优
 					...
 				</div>
 			</a>
@@ -509,7 +537,7 @@ var _hmt = _hmt || [];
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/语言/">语言</a>
+                                        <a href="/categories/CS/">CS</a>
 										
 											>
 										
@@ -519,7 +547,7 @@ var _hmt = _hmt || [];
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/语言/英语/">英语</a>
+                                        <a href="/categories/CS/OS/">OS</a>
 										
                                     </span>
                                 
@@ -630,5 +658,20 @@ I am a student of our universty who regularly comes to our library to do some re
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
 	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
