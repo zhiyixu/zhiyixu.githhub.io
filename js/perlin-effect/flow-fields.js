@@ -6,7 +6,7 @@ var lastNum = num
 
 // the canvas size
 
-// var thumb = document.querySelector("div.mb-4")
+var thumb = document.querySelector("div.mb-4")
 
 var cWidth = thumb.clientWidth;
 var cHeight = thumb.clientHeight;
