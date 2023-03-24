@@ -3,6 +3,14 @@ var noiseScale = 0.001
 var bakAlpha = 0.15
 var lastNum = num
 
+
+// the canvas size
+
+// var thumb = document.querySelector("div.mb-4")
+
+var cWidth = thumb.clientWidth;
+var cHeight = thumb.clientHeight;
+
 let particles = [];
 let noiseArray = [];
 
@@ -21,7 +29,7 @@ function particalInit(num) {
 }
 
 function setup() {
-    createCanvas(innerWidth, innerHeight);
+    createCanvas(cWidth, cHeight);
     var gui = createGui('Ctrls');
     sliderRange(500, 1500, 50);
     gui.addGlobals('num');
