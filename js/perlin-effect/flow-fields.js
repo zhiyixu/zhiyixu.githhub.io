@@ -1,21 +1,37 @@
-var num = 500
-var noiseScale = 0.001
+var num = 1000
+var noiseScale = 0.01
 var bakAlpha = 0.15
 var lastNum = num
 
+var drow = document.querySelector("div.row")
 
+const canvas = {
+    width: drow.clientWidth,
+    height: drow.clientWidth * 3 / 5
+}
+
+var canvasRect = undefined;
 // the canvas size
-
-var thumb = document.querySelector("div.mb-4")
-
-var cWidth = thumb.clientWidth;
-var cHeight = thumb.clientHeight;
 
 let particles = [];
 let noiseArray = [];
 
+var mouse = {
+    x: undefined,
+    y: undefined
+}
+
+
+window.addEventListener("mousemove", function (event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+})
+
+
 window.addEventListener("dblclick", function () {
-    noiseSeed(millis());
+    if (mouseIn(mouse)) {
+        noiseSeed(millis());
+    }
 })
 
 
@@ -23,14 +39,17 @@ function particalInit(num) {
     particles = [];
     noiseArray = [];
     for (let i = 0; i < num; i++) {
-        particles.push(createVector(random(width), random(height)));
+        particles.push(createVector(random(canvas.width), random(canvas.height)));
     }
     stroke(255);
 }
 
 function setup() {
-    createCanvas(cWidth, cHeight);
+    createCanvas(canvas.width, canvas.height);
+    const c = document.querySelector("canvas")
+    canvasRect = c.getBoundingClientRect()
     var gui = createGui('Ctrls');
+    gui.setPosition(canvasRect.left, canvasRect.top - 25);
     sliderRange(500, 1500, 50);
     gui.addGlobals('num');
 
@@ -58,8 +77,8 @@ function draw() {
         p.x += cos(a);
         p.y += sin(a);
         if (!onScreen(p)) {
-            p.x = random(width);
-            p.y = random(height);
+            p.x = random(canvas.width);
+            p.y = random(canvas.height);
         }
     }
 }
@@ -69,3 +88,11 @@ function onScreen(v) {
     return v.x >= 0 && v.x <= width && v.x >= 0 && v.y <= height;
 }
 
+
+function mouseIn(mouse) {
+    return (
+        (mouse.x > canvasRect.left && mouse.x < canvasRect.left + canvas.width) &&
+        (mouse.y > canvasRect.top && mouse.y < canvasRect.top + canvas.height)
+    )
+
+}
