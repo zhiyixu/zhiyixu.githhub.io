@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		3.数据预处理 | 
+	 
+	Pages
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.gif">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">Pages</a>
+
+	<ul id="menu">
+		<!-- <li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li> -->
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<!-- <li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li> -->
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										政治
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%94%BF%E6%B2%BB/20%E9%A2%98/">
+                     
+										    20题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%94%BF%E6%B2%BB/%E5%88%86%E6%9E%90%E9%A2%98/">
+                     
+										    徐涛分析题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%94%BF%E6%B2%BB/%E5%BE%90%E6%B6%9B/">
+                     
+										    徐涛选择题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%94%BF%E6%B2%BB/%E9%80%89%E6%8B%A9/">
+                     
+										    选择题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										数学
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E5%AD%A6/%E6%A8%A1%E6%8B%9F%E9%A2%98/">
+                     
+										    模拟题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E5%AD%A6/%E7%9C%9F%E9%A2%98/">
+                     
+										    真题
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										数据分析
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										基础
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/1.%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0/">
+                     
+										    1.概述
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/2.%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E9%9B%86%E6%88%90/">
+                     
+										    2.数据采集集成
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/3.%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">
+                     
+										    3.数据预处理
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/4.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/">
+                     
+										    4.分布式存储
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/5.%E5%88%86%E5%B8%83%E5%BC%8F%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/">
+                     
+										    5.分布式并行计算
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/6.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                     
+										    6.数据分析
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/7.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+                     
+										    7.数据可视化
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										建模
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/10/09/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                     
+										    机器学习概念
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										测试
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Flow-Fields
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2023/03/24/%E6%B5%8B%E8%AF%95/Flow-Fields/index/">
+                     
+										    index
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										计算机科学
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										操作系统
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch0/">
+                     
+										    第零章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch1/">
+                     
+										    第一章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch2/">
+                     
+										    第二章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch3/">
+                     
+										    第三章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch4/">
+                     
+										    第四章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch5/">
+                     
+										    第五章
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										语言
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										日本语
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E6%97%A5%E6%9C%AC%E8%AF%AD/ch0/">
+                     
+										    ch0
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										英语
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E8%8B%B1%E8%AF%AD/%E5%A4%A7%E4%BD%9C%E6%96%87/">
+                     
+										    大作文
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E8%8B%B1%E8%AF%AD/%E5%B0%8F%E4%BD%9C%E6%96%87/">
+                     
+										    小作文
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E8%8B%B1%E8%AF%AD/%E5%B0%8F%E4%BD%9C%E6%96%87%E7%BB%83%E4%B9%A0/">
+                     
+										    小作文练习
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/09/28/%E8%AF%AD%E8%A8%80/%E8%8B%B1%E8%AF%AD/%E8%AF%8D%E6%A0%B9%E8%AF%8D%E7%BC%80/">
+                     
+										    英语词根
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	3.数据预处理
+</h1>
+<div class="article-meta">
+	
+	<span>ZhiyiXu</span>
+	<span>2022-09-28 11:55:05</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/数据分析/">数据分析</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/数据分析/基础篇/">基础篇</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/大数据/">大数据</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><h3 id="必要性"><a href="#必要性" class="headerlink" title="必要性"></a>必要性</h3><p>现实世界中数据的特点</p>
+<ul>
+<li>数据不完整</li>
+<li>数据有错误</li>
+<li>数据有噪声</li>
+<li>数据不一致</li>
+<li>数据有重复</li>
+</ul>
+<p>数据的结构</p>
+<ul>
+<li>前台： 指具体的数据应用， 重点关注客户应用场景，解决企业消费者的实际问题。</li>
+<li>中台： 指通过数据技术， 对海量数据进行采集，计算，存储，加工， 同时统一标准和口径。</li>
+<li>后台： 指存储和计算，重点关注数据的处理速度和成本。</li>
+</ul>
+<h3 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h3><blockquote>
+<p>数据预处理： 对数据进行挖掘之前， 先对原始数据进行必要的清洗，集成，转换，离散和规约等一些列的处理工作，以期达到挖掘算法进行知识获取研究要求的最低规范和标准。</p>
+</blockquote>
+<h4 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h4><ul>
+<li>缺失值处理</li>
+<li>噪声处理</li>
+<li>离群点处理</li>
+</ul>
+<h4 id="数据集成"><a href="#数据集成" class="headerlink" title="数据集成"></a>数据集成</h4><ul>
+<li>集成数据源</li>
+<li>解决歧义问题</li>
+<li>解决数据不一致性</li>
+<li>解决数据冗余</li>
+</ul>
+<h4 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h4><p>主要任务是找到数据的特征表示包含</p>
+<ul>
+<li>数据平滑</li>
+<li>数据规范化</li>
+<li>数据离散化</li>
+<li>属性构造</li>
+<li>概念分层</li>
+</ul>
+<h4 id="数据规约"><a href="#数据规约" class="headerlink" title="数据规约"></a>数据规约</h4><blockquote>
+<p>将数据按照语义层结构合并，语义层此结构定义了元组属性值之间的语义信息</p>
+</blockquote>
+<ul>
+<li>维归约</li>
+<li>数量规约</li>
+<li>数据压缩</li>
+</ul>
+<h2 id="数据清洗-1"><a href="#数据清洗-1" class="headerlink" title="数据清洗"></a>数据清洗</h2><h3 id="数据清洗的主要对象"><a href="#数据清洗的主要对象" class="headerlink" title="数据清洗的主要对象"></a>数据清洗的主要对象</h3><h4 id="缺失数据"><a href="#缺失数据" class="headerlink" title="缺失数据"></a>缺失数据</h4><p>数据缺失带来的问题</p>
+<ul>
+<li>系统可能丢失了大量的有用信息</li>
+<li>系统中所表现出的不确定性更加显著</li>
+<li>使挖掘过程陷入混乱， 导致不可靠的输出</li>
+</ul>
+<p>缺失方式的划分</p>
+<ul>
+<li>完全随机缺失： 缺失与数据集中其他数据的取值或缺失没有关系，从统计意义上来说，这种缺失是独立的。 e.g. 采集设备故障</li>
+<li>随机缺失： 缺失与缺失的数据值无关，但与数据在某些属性上的取值有关。 e.g. 人们是否透露收入的可能性与性别，教育程度，职业等因素有关。</li>
+<li>非随机缺失： 缺失值与自身属性取值有关 e.g. 某特定人群补不填写收入值，不可忽略， 如 儿童的固定收入</li>
+</ul>
+<p>处理方式</p>
+<p>删除法</p>
+<ul>
+<li>适用于缺失值较多且该变量对研究的问题不太重要，一般可采用元组删除，变量删除，成对删除</li>
+</ul>
+<p>估计法</p>
+<ul>
+<li>人工填充</li>
+<li>特殊值填充： 使用一个全局常量来填充空缺值</li>
+<li>使用属性的中心度量<ul>
+<li>对称的数据采用均值填充</li>
+<li>倾斜分布的数据采用中位数、条件填充</li>
+</ul>
+</li>
+<li>使用最可能的值填充<ul>
+<li>回归</li>
+<li>贝叶斯</li>
+<li>决策树</li>
+<li>K近邻</li>
+<li>EM</li>
+</ul>
+</li>
+</ul>
+<p>不处理</p>
+<ul>
+<li>防止主观估计值引起新噪声的产生。</li>
+</ul>
+<p>根据缺失值的缺失率和重要性来确定处理策略</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">重要性低</th>
+<th style="text-align:center">重要性高</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">缺失率低</td>
+<td style="text-align:center">不做处理或进行简单填充</td>
+<td style="text-align:center">通过计算进行填充<br>通过经验或业务知识估计</td>
+</tr>
+<tr>
+<td style="text-align:center">缺失率高</td>
+<td style="text-align:center">去除变量</td>
+<td style="text-align:center">尝试从其他渠道取数补全<br>使用其他变量通过计算获取<br>去除变量并在结果中标明</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="噪声数据"><a href="#噪声数据" class="headerlink" title="噪声数据"></a>噪声数据</h4><p>指在测量时测量值可能出现的相对于真实值的偏差或错误， 会影响后续分析操作的结果。</p>
+<p>错误数据：指数据源环境中经常出现的一类问题， 主要包括</p>
+<ul>
+<li>数据值错误</li>
+<li>数据类型错误： e.g. 日期存储为数值， 时间戳存储为字符串</li>
+<li>数据编码错误</li>
+<li>数据格式错误</li>
+<li>数据异常错误：e.g. 全半角错误，日期越界， 不可见字符等</li>
+<li>依赖冲突：e.g. 省和市不匹配</li>
+<li>多值错误</li>
+</ul>
+<h4 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h4><p>指数据集中存在不合理的个别值，其数据明显偏离所属样本的其余观测值</p>
+<p>识别方式： $3 \sigma$ 原则。</p>
+<p>异常值的处理方式：</p>
+<ul>
+<li>删除</li>
+<li>视为缺失值</li>
+<li>平滑处理： 分箱，聚类，回归等</li>
+<li>不处理</li>
+</ul>
+<h4 id="重复处理"><a href="#重复处理" class="headerlink" title="重复处理"></a>重复处理</h4><p>数据集中可能存在重复字段或记录， 基本处理思想是 排序和合并</p>
+<p>排序算法</p>
+<p>相似度计算方法</p>
+<ul>
+<li>基本的字段匹配算法</li>
+<li>标准欧式距离</li>
+<li>汉明距离</li>
+<li>夹角余弦</li>
+<li>杰卡德距离</li>
+<li>马氏距离</li>
+<li>曼哈顿距离</li>
+<li>闵可夫斯基距离</li>
+<li>欧式距离</li>
+<li>切比雪夫距离</li>
+<li>相关系数</li>
+<li>信息熵</li>
+</ul>
+<h2 id="数据清洗的示例"><a href="#数据清洗的示例" class="headerlink" title="数据清洗的示例"></a>数据清洗的示例</h2><pre><code class="lang-python">import numpy as np
+import pandas as pd
+import seaborn as sns # for visualization
+
+
+Data_Path = &#39;&#39;
+ColumnsName = []
+
+data = pd.read_csv(Data_Path, names=ColumnsName)
+
+data.head() # check the data head
+data.info() # check the columns, None-Null count, dtype, shape e.t.c.
+
+
+# deal with miss value
+data = data.replace(to_replace=&quot;?&quot;, value=np.nan) # replace the none value
+
+data = data.dropna(how=&#39;any&#39;) # drop the data row with NaN.
+data.to_csv(&quot;new_data_name.csv&quot;, index=0)
+
+
+# find the unusual data via box chart, if data with Normal distribution then use Normal distribution chart with 3 sigma.
+sns.boxplot(x=data[&quot;Class&quot;], y = data[&quot;Clump Thickness&quot;])
+
+Q1 = data[&quot;Nland Chromatin&quot;].quantile(q=.25)
+Q3 = data[&quot;Nland Chromatin&quot;].quantile(q=.75)
+
+# base the 1.5 times diff of quantile to calculate the boundary
+low_boundry = Q1 - 1.5*(Q3-Q1)
+up_boundry = Q3 + 1.5*(Q3-Q1)
+
+data[&quot;Bland Chormatin&quot;].query(&quot;`Bland Chormatin` &gt; @low_boundry and `Bland Chormatin` &lt; @up_boundry&quot;)
+</code></pre>
+<h2 id="数据集成-1"><a href="#数据集成-1" class="headerlink" title="数据集成"></a>数据集成</h2><blockquote>
+<p>数据集成是技术流程和业务流程的组合， 用于将不同来源的数据组合成有意义有价值的信息。</p>
+</blockquote>
+<h3 id="传统数据集成"><a href="#传统数据集成" class="headerlink" title="传统数据集成"></a>传统数据集成</h3><p>用于解决语义歧义，实例歧义和数据不一致性带来的问题</p>
+<p>流程：</p>
+<ol>
+<li>模式对齐： 解决语义歧义带来的问题即 某个属性在多表中的冗余问题。</li>
+<li>记录链接： 解决哪些记录表示的是相同的实体而哪些不是</li>
+<li>数据融合： 针对数据质量带来的问题， 即不同的数据源相互冲突时， 采用哪个值。</li>
+</ol>
+<h3 id="异构数据集成"><a href="#异构数据集成" class="headerlink" title="异构数据集成"></a>异构数据集成</h3><p>主要分为以下几种</p>
+<ul>
+<li>结构异构： 不同数据源数据结构的不同<ul>
+<li>可采用 模式集成或数据复制（ETL）的方法</li>
+</ul>
+</li>
+<li>语义性异构： 不同数据源的数据项在含义上有差别<ul>
+<li>可采用基于本体的数据集成</li>
+</ul>
+</li>
+<li>数据源的异地分布性</li>
+<li>数据源的自治性 ？？？？</li>
+</ul>
+<h2 id="数据规约-1"><a href="#数据规约-1" class="headerlink" title="数据规约"></a>数据规约</h2><blockquote>
+<p>在大数据上进行复杂的数据分析和挖掘需要很长时间， 数据规约产生更小但是保持原始数据完整性的新数据集。 在规约后的数据集上进行分析和挖掘将更有效率。</p>
+</blockquote>
+<p>数据规约的意义在于：</p>
+<ul>
+<li>降低无效，错误的数据对建模的影响，提高建模的准确性。</li>
+<li>少量且具代表性的数据将大幅缩减数据挖掘所需要的时间。</li>
+<li>降低存储数据的成本。</li>
+</ul>
+<h3 id="维度规约"><a href="#维度规约" class="headerlink" title="维度规约"></a>维度规约</h3><blockquote>
+<p>从原有的数据中， 通过减少数据集中的属性或者使用组合属性代替原属性来精简数据集， 目的是减少系统资源的消耗并降低无效/错误数据的影响</p>
+</blockquote>
+<p>数据降维</p>
+<ul>
+<li>特征选择： 从原始特征集中选出一组具有统计意义的特征，以降低数据集中的属性数，不会改变原始特征空间<ul>
+<li>常见的方法： 决策树，分支定界法，序列前向选择，序列后向选择，模拟退火，竞技搜索，遗传算法。</li>
+</ul>
+</li>
+<li>特征提取：将原始特征转换为一组具有明显物理意义或者统计意义的特征，以降低数据集中的属性数。方式会通过转换原有特征得到新的特征，因此会改变原特征空间。<ul>
+<li>常见的方式有： 主成分分析，线性判别分析，奇异值分解，独立成分分析。</li>
+</ul>
+</li>
+</ul>
+<h3 id="数量规约"><a href="#数量规约" class="headerlink" title="数量规约"></a>数量规约</h3><blockquote>
+<p>通过减少数据集中的数据量减小数据集</p>
+</blockquote>
+<p>数量规约的方法</p>
+<ul>
+<li>参数化数据归约<ul>
+<li>线性回归， 多元回归</li>
+<li>对数线性模型：用于近似离散属性集中的多维概率分布。</li>
+</ul>
+</li>
+<li>非参数化数据规约<ul>
+<li>直方图</li>
+<li>聚类</li>
+<li>抽样</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据压缩"><a href="#数据压缩" class="headerlink" title="数据压缩"></a>数据压缩</h3><p>无损压缩： 压缩后的数据可以重构原始数据</p>
+<p>有损压缩： 压缩后的数据不足以重构原始的数据。</p>
+<h2 id="数据规约示例"><a href="#数据规约示例" class="headerlink" title="数据规约示例"></a>数据规约示例</h2><pre><code class="lang-python">import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+
+
+daily = pd.read_csv(&quot;&quot;, header=&quot;infer&quot;)# (&quot;&quot;, pase_date=&quot;DATE&quot;)
+daily.head()
+
+daily.info()
+
+daily.index = pd.to_datetime(daily.DATE) # convert the str date to datetime type and set it to index. 
+
+
+monthly = daily.groupby(pd.Grouper(freq=&#39;M&#39;)).sum()
+ax = monthly.plot(kind=&#39;line&#39;, figsize=(15, 3))
+ax.set_title(&#39;Monthly Precipitation&#39;)
+</code></pre>
+<h2 id="数据变化"><a href="#数据变化" class="headerlink" title="数据变化"></a>数据变化</h2><h3 id="属性构造"><a href="#属性构造" class="headerlink" title="属性构造"></a>属性构造</h3><blockquote>
+<p>有给定的属性构造先的属性， 并加入到现有的属性集合中， 以增加对数据高维信息的理解和精确度。</p>
+</blockquote>
+<h3 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h3><blockquote>
+<p>将有关属性数据按比例投射到特定的小范围之中。 目的是为了消除属性之间的量纲和取值范围差异的影响。</p>
+</blockquote>
+<p>常用方式</p>
+<ul>
+<li>最小最大规范化 <ul>
+<li><script type="math/tex; mode=display">v'=\frac{v-min_{A}}{max_A-min_A}\left(newmax_A-newmin_A\right)+newmin_A</script></li>
+</ul>
+</li>
+<li>z-score 规范化<ul>
+<li><script type="math/tex; mode=display">v'=\frac{v-EA}{\sigma_A}</script></li>
+</ul>
+</li>
+<li>小数定标<ul>
+<li><script type="math/tex; mode=display">v'=\frac{v}{10^j}</script></li>
+</ul>
+</li>
+</ul>
+<h3 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h3><blockquote>
+<p>将数值型变量变成离散型变量的过程</p>
+</blockquote>
+<p>数据离散化的方法</p>
+<ul>
+<li>无监督离散化方法<ul>
+<li>等宽分箱</li>
+<li>等深分箱</li>
+<li>聚类方法</li>
+</ul>
+</li>
+<li>有监督离散化方法<ul>
+<li>1R方法</li>
+<li>基于熵的离散化方法</li>
+<li>卡方分裂算法</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据聚集"><a href="#数据聚集" class="headerlink" title="数据聚集"></a>数据聚集</h3><h3 id="概念分层"><a href="#概念分层" class="headerlink" title="概念分层"></a>概念分层</h3><blockquote>
+<p>用来将数据变换到多个抽象层， 来取代低层次数据层的数据对象。</p>
+</blockquote>
+<p>如 国家-省-市-区-街道 可以针对不同的抽象层次采用不同的算法</p>
+<h2 id="数据变化示例"><a href="#数据变化示例" class="headerlink" title="数据变化示例"></a>数据变化示例</h2><pre><code class="lang-python">import pandas as pd
+import numpy as np
+from sklearn.preprocessing import OrdinalEncoder # num encoding
+from sklearn.preprocessing import OneHotEncoder # one-hot encoding
+from sklearn.feature_extraction import DictVectorizer 
+
+
+
+data = pd.read_csv(&quot;&quot;, encoding=&#39;gbk&#39;) # simplify chinese
+
+df_data_oe = data.copy() # copy is important
+
+
+oe = OrdinalEncoder()
+oe.fit(df_data.iloc[:,:7].values.reshape(-1, 7)).categories_
+oe.fit_transform(df_data.iloc[:,:7].values.reshape(-1, 7))
+df_data_oe.iloc[:,:7] = oe.fit_transform(df_data.iloc[:,:7].values.reshape(-1, 7))
+</code></pre>
+<p><a href="../index.md">返回</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/4.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  4.分布式存储
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2022/09/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%9F%BA%E7%A1%80/5.%E5%88%86%E5%B8%83%E5%BC%8F%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/">
+                5.分布式并行计算
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2022-<span id="footerYear"></span> 
+	<a href="/">ZhiyiXu</a> 
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
