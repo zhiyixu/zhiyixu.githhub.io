@@ -117,6 +117,9 @@ h3 {
 	overflow: hidden;
 	position: relative;
 	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6d6e6a;
 }
 
 .hovereffect .overlay {
