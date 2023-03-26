@@ -5,8 +5,6 @@ canvas.width = drow.clientWidth;
 canvas.height = drow.clientWidth * sizeRatio;
 var c = canvas.getContext("2d");
 
-var canvasRect = canvas.getBoundingClientRect()
-
 var mouse = {
     x: undefined,
     y: undefined
@@ -18,21 +16,16 @@ var minRadius = 10;
 var gravity = .5; // move this far than last farme
 var fraction = .7; // keep % of energy ench bounding
 
-window.addEventListener("mousemove", function (event) {
-    mouse.x = event.x;
-    mouse.y = event.y;
-})
+canvas.addEventListener('mousemove', function (event) {
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - rect.left;
+    mouse.y = event.clientY - rect.top;
+});
 
 window.addEventListener("click", function () {
     init();
 })
 
-// window.addEventListener("resize", function () {
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-//     init();
-
-// })
 
 
 function getDestance(x1, y1, x2, y2) {
