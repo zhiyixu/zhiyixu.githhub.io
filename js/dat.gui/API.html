@@ -1,0 +1,575 @@
+<h1 id="dat-GUI-API"><a href="#dat-GUI-API" class="headerlink" title="dat.GUI API"></a>dat.GUI API</h1><p>Details about the classes, methods, and properties provided by dat.GUI. For more<br>hands-on examples, see the dat.GUI <a href="http://workshop.chromeexperiments.com/examples/gui">tutorial</a>.</p>
+<!--- API BEGIN --->
+<h2 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h2><dl>
+<dt><a href="#GUI">GUI</a></dt>
+<dd><p>A lightweight controller library for JavaScript. It allows you to easily
+manipulate variables and fire functions on the fly.</p>
+</dd>
+<dt><a href="#Controller">Controller</a></dt>
+<dd><p>An &quot;abstract&quot; class that represents a given property of an object.</p>
+</dd>
+<dt><a href="#NumberController">NumberController</a> ⇐ <code>dat.controllers.Controller</code></dt>
+<dd><p>Represents a given property of an object that is a number.</p>
+</dd>
+</dl>
+
+<p><a name="GUI"></a></p>
+<h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><p>A lightweight controller library for JavaScript. It allows you to easily<br>manipulate variables and fire functions on the fly.</p>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#GUI">GUI</a><ul>
+<li><a href="#new_GUI_new">new GUI([params])</a></li>
+<li><a href="#GUI+domElement">.domElement</a> : <code>DOMElement</code></li>
+<li><a href="#GUI+parent">.parent</a> : <code>dat.gui.GUI</code></li>
+<li><a href="#GUI+autoPlace">.autoPlace</a> : <code>Boolean</code></li>
+<li><a href="#GUI+closeOnTop">.closeOnTop</a> : <code>Boolean</code></li>
+<li><a href="#GUI+preset">.preset</a> : <code>String</code></li>
+<li><a href="#GUI+width">.width</a> : <code>Number</code></li>
+<li><a href="#GUI+name">.name</a> : <code>String</code></li>
+<li><a href="#GUI+closed">.closed</a> : <code>Boolean</code></li>
+<li><a href="#GUI+load">.load</a> : <code>Object</code></li>
+<li><a href="#GUI+useLocalStorage">.useLocalStorage</a> : <code>Boolean</code></li>
+<li><a href="#GUI+add">.add(object, property, [min], [max], [step])</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#GUI+addColor">.addColor(object, property)</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#GUI+remove">.remove(controller)</a></li>
+<li><a href="#GUI+destroy">.destroy()</a></li>
+<li><a href="#GUI+addFolder">.addFolder(name)</a> ⇒ <code>dat.gui.GUI</code></li>
+<li><a href="#GUI+removeFolder">.removeFolder(folder)</a></li>
+<li><a href="#GUI+open">.open()</a></li>
+<li><a href="#GUI+close">.close()</a></li>
+<li><a href="#GUI+hide">.hide()</a></li>
+<li><a href="#GUI+show">.show()</a></li>
+<li><a href="#GUI+getRoot">.getRoot()</a> ⇒ <code>dat.gui.GUI</code></li>
+<li><a href="#GUI+getSaveObject">.getSaveObject()</a> ⇒ <code>Object</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_GUI_new"></a></p>
+<h3 id="new-GUI-params"><a href="#new-GUI-params" class="headerlink" title="new GUI([params])"></a>new GUI([params])</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[params]</td>
+<td><code>Object</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[params.name]</td>
+<td><code>String</code></td>
+<td></td>
+<td>The name of this GUI.</td>
+</tr>
+<tr>
+<td>[params.load]</td>
+<td><code>Object</code></td>
+<td></td>
+<td>JSON object representing the saved state of this GUI.</td>
+</tr>
+<tr>
+<td>[params.parent]</td>
+<td><code>dat.gui.GUI</code></td>
+<td></td>
+<td>The GUI I’m nested in.</td>
+</tr>
+<tr>
+<td>[params.autoPlace]</td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[params.hideable]</td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td>If true, GUI is shown/hidden by <kbd>h</kbd> keypress.</td>
+</tr>
+<tr>
+<td>[params.closed]</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>If true, starts closed</td>
+</tr>
+<tr>
+<td>[params.closeOnTop]</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>If true, close/open button shows on top of the GUI</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">// Creating a GUI with options.
+var gui = new dat.GUI({name: &#39;My GUI&#39;});
+</code></pre>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">// Creating a GUI and a subfolder.
+var gui = new dat.GUI();
+var folder1 = gui.addFolder(&#39;Flow Field&#39;);
+</code></pre>
+<p><a name="GUI+domElement"></a></p>
+<h3 id="gui-domElement-DOMElement"><a href="#gui-domElement-DOMElement" class="headerlink" title="gui.domElement : DOMElement"></a>gui.domElement : <code>DOMElement</code></h3><p>Outermost DOM Element</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+parent"></a></p>
+<h3 id="gui-parent-dat-gui-GUI"><a href="#gui-parent-dat-gui-GUI" class="headerlink" title="gui.parent : dat.gui.GUI"></a>gui.parent : <code>dat.gui.GUI</code></h3><p>The parent <code>GUI</code></p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+autoPlace"></a></p>
+<h3 id="gui-autoPlace-Boolean"><a href="#gui-autoPlace-Boolean" class="headerlink" title="gui.autoPlace : Boolean"></a>gui.autoPlace : <code>Boolean</code></h3><p>Handles <code>GUI</code>‘s element placement for you</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+closeOnTop"></a></p>
+<h3 id="gui-closeOnTop-Boolean"><a href="#gui-closeOnTop-Boolean" class="headerlink" title="gui.closeOnTop : Boolean"></a>gui.closeOnTop : <code>Boolean</code></h3><p>Handles <code>GUI</code>‘s position of open/close button</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+preset"></a></p>
+<h3 id="gui-preset-String"><a href="#gui-preset-String" class="headerlink" title="gui.preset : String"></a>gui.preset : <code>String</code></h3><p>The identifier for a set of saved values</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+width"></a></p>
+<h3 id="gui-width-Number"><a href="#gui-width-Number" class="headerlink" title="gui.width : Number"></a>gui.width : <code>Number</code></h3><p>The width of <code>GUI</code> element</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+name"></a></p>
+<h3 id="gui-name-String"><a href="#gui-name-String" class="headerlink" title="gui.name : String"></a>gui.name : <code>String</code></h3><p>The name of <code>GUI</code>. Used for folders. i.e<br>a folder’s name</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+closed"></a></p>
+<h3 id="gui-closed-Boolean"><a href="#gui-closed-Boolean" class="headerlink" title="gui.closed : Boolean"></a>gui.closed : <code>Boolean</code></h3><p>Whether the <code>GUI</code> is collapsed or not</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+load"></a></p>
+<h3 id="gui-load-Object"><a href="#gui-load-Object" class="headerlink" title="gui.load : Object"></a>gui.load : <code>Object</code></h3><p>Contains all presets</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+useLocalStorage"></a></p>
+<h3 id="gui-useLocalStorage-Boolean"><a href="#gui-useLocalStorage-Boolean" class="headerlink" title="gui.useLocalStorage : Boolean"></a>gui.useLocalStorage : <code>Boolean</code></h3><p>Determines whether or not to use <a href="https://developer.mozilla.org/en/DOM/Storage#localStorage">localStorage</a> as the means for<br><code>remember</code>ing</p>
+<p><strong>Kind</strong>: instance property of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+add"></a></p>
+<h3 id="gui-add-object-property-min-max-step-⇒-Controller"><a href="#gui-add-object-property-min-max-step-⇒-Controller" class="headerlink" title="gui.add(object, property, [min], [max], [step]) ⇒ Controller"></a>gui.add(object, property, [min], [max], [step]) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Adds a new <a href="#Controller">Controller</a> to the GUI. The type of controller created<br>is inferred from the initial value of <code>object[property]</code>. For<br>color properties, see <a href="addColor">addColor</a>.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><strong>Returns</strong>: <a href="#Controller"><code>Controller</code></a> - The controller that was added to the GUI.  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td><code>Object</code></td>
+<td>The object to be manipulated</td>
+</tr>
+<tr>
+<td>property</td>
+<td><code>String</code></td>
+<td>The name of the property to be manipulated</td>
+</tr>
+<tr>
+<td>[min]</td>
+<td><code>Number</code></td>
+<td>Minimum allowed value</td>
+</tr>
+<tr>
+<td>[max]</td>
+<td><code>Number</code></td>
+<td>Maximum allowed value</td>
+</tr>
+<tr>
+<td>[step]</td>
+<td><code>Number</code></td>
+<td>Increment by which to change value</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">// Add a string controller.
+var person = {name: &#39;Sam&#39;};
+gui.add(person, &#39;name&#39;);
+</code></pre>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">// Add a number controller slider.
+var person = {age: 45};
+gui.add(person, &#39;age&#39;, 0, 100);
+</code></pre>
+<p><a name="GUI+addColor"></a></p>
+<h3 id="gui-addColor-object-property-⇒-Controller"><a href="#gui-addColor-object-property-⇒-Controller" class="headerlink" title="gui.addColor(object, property) ⇒ Controller"></a>gui.addColor(object, property) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Adds a new color controller to the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><strong>Returns</strong>: <a href="#Controller"><code>Controller</code></a> - The controller that was added to the GUI.  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+</tr>
+<tr>
+<td>property</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">var palette = {
+  color1: &#39;#FF0000&#39;, // CSS string
+  color2: [ 0, 128, 255 ], // RGB array
+  color3: [ 0, 128, 255, 0.3 ], // RGB with alpha
+  color4: { h: 350, s: 0.9, v: 0.3 } // Hue, saturation, value
+};
+gui.addColor(palette, &#39;color1&#39;);
+gui.addColor(palette, &#39;color2&#39;);
+gui.addColor(palette, &#39;color3&#39;);
+gui.addColor(palette, &#39;color4&#39;);
+</code></pre>
+<p><a name="GUI+remove"></a></p>
+<h3 id="gui-remove-controller"><a href="#gui-remove-controller" class="headerlink" title="gui.remove(controller)"></a>gui.remove(controller)</h3><p>Removes the given controller from the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>controller</td>
+<td><a href="#Controller"><code>Controller</code></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="GUI+destroy"></a></p>
+<h3 id="gui-destroy"><a href="#gui-destroy" class="headerlink" title="gui.destroy()"></a>gui.destroy()</h3><p>Removes the root GUI from the document and unbinds all event listeners.<br>For subfolders, use <code>gui.removeFolder(folder)</code> instead.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+addFolder"></a></p>
+<h3 id="gui-addFolder-name-⇒-dat-gui-GUI"><a href="#gui-addFolder-name-⇒-dat-gui-GUI" class="headerlink" title="gui.addFolder(name) ⇒ dat.gui.GUI"></a>gui.addFolder(name) ⇒ <code>dat.gui.GUI</code></h3><p>Creates a new subfolder GUI instance.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><strong>Returns</strong>: <code>dat.gui.GUI</code> - The new folder.<br><strong>Throws</strong>:</p>
+<ul>
+<li><code>Error</code> if this GUI already has a folder by the specified<br>name</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="GUI+removeFolder"></a></p>
+<h3 id="gui-removeFolder-folder"><a href="#gui-removeFolder-folder" class="headerlink" title="gui.removeFolder(folder)"></a>gui.removeFolder(folder)</h3><p>Removes a subfolder GUI instance.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>folder</td>
+<td><code>dat.gui.GUI</code></td>
+<td>The folder to remove.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="GUI+open"></a></p>
+<h3 id="gui-open"><a href="#gui-open" class="headerlink" title="gui.open()"></a>gui.open()</h3><p>Opens the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+close"></a></p>
+<h3 id="gui-close"><a href="#gui-close" class="headerlink" title="gui.close()"></a>gui.close()</h3><p>Closes the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+hide"></a></p>
+<h3 id="gui-hide"><a href="#gui-hide" class="headerlink" title="gui.hide()"></a>gui.hide()</h3><p>Hides the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+show"></a></p>
+<h3 id="gui-show"><a href="#gui-show" class="headerlink" title="gui.show()"></a>gui.show()</h3><p>Shows the GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><a name="GUI+getRoot"></a></p>
+<h3 id="gui-getRoot-⇒-dat-gui-GUI"><a href="#gui-getRoot-⇒-dat-gui-GUI" class="headerlink" title="gui.getRoot() ⇒ dat.gui.GUI"></a>gui.getRoot() ⇒ <code>dat.gui.GUI</code></h3><p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><strong>Returns</strong>: <code>dat.gui.GUI</code> - the topmost parent GUI of a nested GUI.<br><a name="GUI+getSaveObject"></a></p>
+<h3 id="gui-getSaveObject-⇒-Object"><a href="#gui-getSaveObject-⇒-Object" class="headerlink" title="gui.getSaveObject() ⇒ Object"></a>gui.getSaveObject() ⇒ <code>Object</code></h3><p><strong>Kind</strong>: instance method of <a href="#GUI"><code>GUI</code></a><br><strong>Returns</strong>: <code>Object</code> - a JSON object representing the current state of<br>this GUI as well as its remembered properties.<br><a name="Controller"></a></p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p>An “abstract” class that represents a given property of an object.</p>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Controller">Controller</a><ul>
+<li><a href="#new_Controller_new">new Controller(object, property)</a></li>
+<li><a href="#Controller+domElement">.domElement</a> : <code>DOMElement</code></li>
+<li><a href="#Controller+object">.object</a> : <code>Object</code></li>
+<li><a href="#Controller+property">.property</a> : <code>String</code></li>
+<li><a href="#Controller+options">.options(options)</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+name">.name(name)</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+listen">.listen()</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+remove">.remove()</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+onChange">.onChange(fnc)</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+onFinishChange">.onFinishChange(fnc)</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+setValue">.setValue(newValue)</a></li>
+<li><a href="#Controller+getValue">.getValue()</a> ⇒ <code>Object</code></li>
+<li><a href="#Controller+updateDisplay">.updateDisplay()</a> ⇒ <a href="#Controller"><code>Controller</code></a></li>
+<li><a href="#Controller+isModified">.isModified()</a> ⇒ <code>Boolean</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Controller_new"></a></p>
+<h3 id="new-Controller-object-property"><a href="#new-Controller-object-property" class="headerlink" title="new Controller(object, property)"></a>new Controller(object, property)</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td><code>Object</code></td>
+<td>The object to be manipulated</td>
+</tr>
+<tr>
+<td>property</td>
+<td><code>string</code></td>
+<td>The name of the property to be manipulated</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+domElement"></a></p>
+<h3 id="controller-domElement-DOMElement"><a href="#controller-domElement-DOMElement" class="headerlink" title="controller.domElement : DOMElement"></a>controller.domElement : <code>DOMElement</code></h3><p>Those who extend this class will put their DOM elements in here.</p>
+<p><strong>Kind</strong>: instance property of <a href="#Controller"><code>Controller</code></a><br><a name="Controller+object"></a></p>
+<h3 id="controller-object-Object"><a href="#controller-object-Object" class="headerlink" title="controller.object : Object"></a>controller.object : <code>Object</code></h3><p>The object to manipulate</p>
+<p><strong>Kind</strong>: instance property of <a href="#Controller"><code>Controller</code></a><br><a name="Controller+property"></a></p>
+<h3 id="controller-property-String"><a href="#controller-property-String" class="headerlink" title="controller.property : String"></a>controller.property : <code>String</code></h3><p>The name of the property to manipulate</p>
+<p><strong>Kind</strong>: instance property of <a href="#Controller"><code>Controller</code></a><br><a name="Controller+options"></a></p>
+<h3 id="controller-options-options-⇒-Controller"><a href="#controller-options-options-⇒-Controller" class="headerlink" title="controller.options(options) ⇒ Controller"></a>controller.options(options) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Array</code> \</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+name"></a></p>
+<h3 id="controller-name-name-⇒-Controller"><a href="#controller-name-name-⇒-Controller" class="headerlink" title="controller.name(name) ⇒ Controller"></a>controller.name(name) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Sets the name of the controller.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+listen"></a></p>
+<h3 id="controller-listen-⇒-Controller"><a href="#controller-listen-⇒-Controller" class="headerlink" title="controller.listen() ⇒ Controller"></a>controller.listen() ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Sets controller to listen for changes on its underlying object.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><a name="Controller+remove"></a></p>
+<h3 id="controller-remove-⇒-Controller"><a href="#controller-remove-⇒-Controller" class="headerlink" title="controller.remove() ⇒ Controller"></a>controller.remove() ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Removes the controller from its parent GUI.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><a name="Controller+onChange"></a></p>
+<h3 id="controller-onChange-fnc-⇒-Controller"><a href="#controller-onChange-fnc-⇒-Controller" class="headerlink" title="controller.onChange(fnc) ⇒ Controller"></a>controller.onChange(fnc) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Specify that a function fire every time someone changes the value with<br>this Controller.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><strong>Returns</strong>: <a href="#Controller"><code>Controller</code></a> - this  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fnc</td>
+<td><code>function</code></td>
+<td>This function will be called whenever the value is modified via this Controller.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+onFinishChange"></a></p>
+<h3 id="controller-onFinishChange-fnc-⇒-Controller"><a href="#controller-onFinishChange-fnc-⇒-Controller" class="headerlink" title="controller.onFinishChange(fnc) ⇒ Controller"></a>controller.onFinishChange(fnc) ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Specify that a function fire every time someone “finishes” changing<br>the value wih this Controller. Useful for values that change<br>incrementally like numbers or strings.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><strong>Returns</strong>: <a href="#Controller"><code>Controller</code></a> - this  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fnc</td>
+<td><code>function</code></td>
+<td>This function will be called whenever someone “finishes” changing the value via this Controller.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+setValue"></a></p>
+<h3 id="controller-setValue-newValue"><a href="#controller-setValue-newValue" class="headerlink" title="controller.setValue(newValue)"></a>controller.setValue(newValue)</h3><p>Change the value of <code>object[property]</code></p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newValue</td>
+<td><code>Object</code></td>
+<td>The new value of <code>object[property]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="Controller+getValue"></a></p>
+<h3 id="controller-getValue-⇒-Object"><a href="#controller-getValue-⇒-Object" class="headerlink" title="controller.getValue() ⇒ Object"></a>controller.getValue() ⇒ <code>Object</code></h3><p>Gets the value of <code>object[property]</code></p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><strong>Returns</strong>: <code>Object</code> - The current value of <code>object[property]</code><br><a name="Controller+updateDisplay"></a></p>
+<h3 id="controller-updateDisplay-⇒-Controller"><a href="#controller-updateDisplay-⇒-Controller" class="headerlink" title="controller.updateDisplay() ⇒ Controller"></a>controller.updateDisplay() ⇒ <a href="#Controller"><code>Controller</code></a></h3><p>Refreshes the visual display of a Controller in order to keep sync<br>with the object’s current value.</p>
+<p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><strong>Returns</strong>: <a href="#Controller"><code>Controller</code></a> - this<br><a name="Controller+isModified"></a></p>
+<h3 id="controller-isModified-⇒-Boolean"><a href="#controller-isModified-⇒-Boolean" class="headerlink" title="controller.isModified() ⇒ Boolean"></a>controller.isModified() ⇒ <code>Boolean</code></h3><p><strong>Kind</strong>: instance method of <a href="#Controller"><code>Controller</code></a><br><strong>Returns</strong>: <code>Boolean</code> - true if the value has deviated from initialValue<br><a name="NumberController"></a></p>
+<h2 id="NumberController-⇐-dat-controllers-Controller"><a href="#NumberController-⇐-dat-controllers-Controller" class="headerlink" title="NumberController ⇐ dat.controllers.Controller"></a>NumberController ⇐ <code>dat.controllers.Controller</code></h2><p>Represents a given property of an object that is a number.</p>
+<p><strong>Kind</strong>: global class<br><strong>Extends</strong>: <code>dat.controllers.Controller</code>  </p>
+<ul>
+<li><a href="#NumberController">NumberController</a> ⇐ <code>dat.controllers.Controller</code><ul>
+<li><a href="#new_NumberController_new">new NumberController(object, property, [params])</a></li>
+<li><a href="#NumberController+min">.min(minValue)</a> ⇒ <code>dat.controllers.NumberController</code></li>
+<li><a href="#NumberController+max">.max(maxValue)</a> ⇒ <code>dat.controllers.NumberController</code></li>
+<li><a href="#NumberController+step">.step(stepValue)</a> ⇒ <code>dat.controllers.NumberController</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_NumberController_new"></a></p>
+<h3 id="new-NumberController-object-property-params"><a href="#new-NumberController-object-property-params" class="headerlink" title="new NumberController(object, property, [params])"></a>new NumberController(object, property, [params])</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td><code>Object</code></td>
+<td>The object to be manipulated</td>
+</tr>
+<tr>
+<td>property</td>
+<td><code>string</code></td>
+<td>The name of the property to be manipulated</td>
+</tr>
+<tr>
+<td>[params]</td>
+<td><code>Object</code></td>
+<td>Optional parameters</td>
+</tr>
+<tr>
+<td>[params.min]</td>
+<td><code>Number</code></td>
+<td>Minimum allowed value</td>
+</tr>
+<tr>
+<td>[params.max]</td>
+<td><code>Number</code></td>
+<td>Maximum allowed value</td>
+</tr>
+<tr>
+<td>[params.step]</td>
+<td><code>Number</code></td>
+<td>Increment by which to change value</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="NumberController+min"></a></p>
+<h3 id="numberController-min-minValue-⇒-dat-controllers-NumberController"><a href="#numberController-min-minValue-⇒-dat-controllers-NumberController" class="headerlink" title="numberController.min(minValue) ⇒ dat.controllers.NumberController"></a>numberController.min(minValue) ⇒ <code>dat.controllers.NumberController</code></h3><p>Specify a minimum value for <code>object[property]</code>.</p>
+<p><strong>Kind</strong>: instance method of <a href="#NumberController"><code>NumberController</code></a><br><strong>Returns</strong>: <code>dat.controllers.NumberController</code> - this  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>minValue</td>
+<td><code>Number</code></td>
+<td>The minimum value for <code>object[property]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="NumberController+max"></a></p>
+<h3 id="numberController-max-maxValue-⇒-dat-controllers-NumberController"><a href="#numberController-max-maxValue-⇒-dat-controllers-NumberController" class="headerlink" title="numberController.max(maxValue) ⇒ dat.controllers.NumberController"></a>numberController.max(maxValue) ⇒ <code>dat.controllers.NumberController</code></h3><p>Specify a maximum value for <code>object[property]</code>.</p>
+<p><strong>Kind</strong>: instance method of <a href="#NumberController"><code>NumberController</code></a><br><strong>Returns</strong>: <code>dat.controllers.NumberController</code> - this  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maxValue</td>
+<td><code>Number</code></td>
+<td>The maximum value for <code>object[property]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a name="NumberController+step"></a></p>
+<h3 id="numberController-step-stepValue-⇒-dat-controllers-NumberController"><a href="#numberController-step-stepValue-⇒-dat-controllers-NumberController" class="headerlink" title="numberController.step(stepValue) ⇒ dat.controllers.NumberController"></a>numberController.step(stepValue) ⇒ <code>dat.controllers.NumberController</code></h3><p>Specify a step value that dat.controllers.NumberController<br>increments by.</p>
+<p><strong>Kind</strong>: instance method of <a href="#NumberController"><code>NumberController</code></a><br><strong>Default</strong>: <code>if minimum and maximum specified increment is 1% of the<br>difference otherwise stepValue is 1</code><br><strong>Returns</strong>: <code>dat.controllers.NumberController</code> - this  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stepValue</td>
+<td><code>Number</code></td>
+<td>The step value for dat.controllers.NumberController</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--- API END --->

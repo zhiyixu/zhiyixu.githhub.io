@@ -1,0 +1,35 @@
+<h1 id="dat-GUI"><a href="#dat-GUI" class="headerlink" title="dat.GUI"></a>dat.GUI</h1><p>A lightweight graphical user interface for changing variables in JavaScript.</p>
+<p>Get started with dat.GUI by reading the <a href="API.md">API documentation</a>.</p>
+<h2 id="Packaged-Builds"><a href="#Packaged-Builds" class="headerlink" title="Packaged Builds"></a>Packaged Builds</h2><p>The easiest way to use dat.GUI in your code is by using the built source at <code>build/dat.gui.min.js</code>. These built JavaScript files bundle all the necessary dependencies to run dat.GUI.</p>
+<p>In your <code>head</code> tag, include the following code:</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;dat.gui.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="Installing-from-npm"><a href="#Installing-from-npm" class="headerlink" title="Installing from npm"></a>Installing from npm</h2><pre><code class="lang-bash">$ npm install --save dat.gui
+</code></pre>
+<pre><code class="lang-js">// CommonJS:
+const dat = require(&#39;dat.gui&#39;);
+
+// ES6:
+import * as dat from &#39;dat.gui&#39;;
+
+const gui = new dat.GUI();
+</code></pre>
+<h2 id="Directory-Contents"><a href="#Directory-Contents" class="headerlink" title="Directory Contents"></a>Directory Contents</h2><pre><code>├── build - Compiled source code.
+├── src - Source files.
+└── tests - Tests.
+</code></pre><h2 id="Building-your-own-dat-GUI"><a href="#Building-your-own-dat-GUI" class="headerlink" title="Building your own dat.GUI"></a>Building your own dat.GUI</h2><p>In the terminal, enter the following:</p>
+<pre><code>$ npm install
+$ npm run build
+</code></pre><h2 id="npm-scripts"><a href="#npm-scripts" class="headerlink" title="npm scripts"></a>npm scripts</h2><ul>
+<li>npm run build - Build development and production version of scripts.</li>
+<li>npm run dev - Build development version of script and watch for changes.</li>
+</ul>
+<h2 id="Working-with-Content-Security-Policy"><a href="#Working-with-Content-Security-Policy" class="headerlink" title="Working with Content Security Policy"></a>Working with Content Security Policy</h2><p>If you’re using a server with a Content Security Policy in place that blocks ‘unsafe-inline’, you will have problems when dat.gui.js tries to inject style information. To get around this, load ‘build/dat.gui.css’ as an external style sheet.</p>
+<h2 id="Changes"><a href="#Changes" class="headerlink" title="Changes"></a>Changes</h2><p>View the <a href="https://github.com/dataarts/dat.gui">Change Log</a></p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>The following libraries / open-source projects were used in the development of dat.GUI:</p>
+<ul>
+<li><a href="https://rollupjs.org">Rollup</a></li>
+<li><a href="http://sass-lang.com/">Sass</a></li>
+<li><a href="http://nodejs.org/">Node.js</a></li>
+<li><a href="https://github.com/jquery/qunit">QUnit</a> / <a href="http://jquery.com/">jquery</a></li>
+</ul>
